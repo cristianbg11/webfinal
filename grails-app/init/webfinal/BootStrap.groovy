@@ -11,11 +11,6 @@ class BootStrap {
         def admin = new User(username: 'admin', enabled: true, password: 'admin')
         admin.email = "cristianbg011@gmail.com"
         admin.nombre = "Cristian"
-        admin.apellido = "Bueno"
-        admin.tipoUsuario = "Admin"
-        admin.direccion = "Mi casa"
-        admin.ciudad = "Santiago"
-        admin.provincia = "Santiago"
         admin.save(flush: true)
 
         def usuarioRol = new UserRole()

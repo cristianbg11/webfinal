@@ -15,49 +15,20 @@
                 </p>
             </div>
             <div class="row">
+                <g:each in="${eventos}" var="evento">
                 <div class="col-md-6 col-lg-4">
                     <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/scenery/image5.jpg">
                         <div class="card-body">
-                            <h4 class="card-title">Pre-Boda</h4>
+                            <h4 class="card-title">${evento.nombre}</h4>
                             <p class="card-text">
-                                Costo de Servicio RD$1,000.00
+                                Costo de Servicio $RD ${evento.costo}
                             </p>
                         </div>
-                        <div><a href="/servicios/checkout/1" class="btn btn-outline-primary btn-sm" type="button">Comprar Servicio</a></div>
+                        <div><a href="/servicios/checkout/${evento.id}" class="btn btn-outline-primary btn-sm" type="button">Comprar Servicio</a></div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/scenery/image6.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Boda</h4>
-                            <p class="card-text">
-                                Costo de Servicio RD$5,000.00.</p>
-                        </div>
-                        <div><a href="/servicios/checkout/2" class="btn btn-outline-primary btn-sm" type="button">Comprar Servicio</a></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/scenery/image1.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Cumpleaños</h4>
-                            <p class="card-text">
-                                Costo de Servicio RD$3,000.00
-                            </p>
-                        </div>
-                        <div><a href="/servicios/checkout/3" class="btn btn-outline-primary btn-sm" type="button">Comprar Servicio</a></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card"><img class="card-img-top w-100 d-block" src="assets/img/scenery/image1.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Video de Evento</h4>
-                            <p class="card-text">
-                                Costo de Servicio RD$4,000.00
-                            </p>
-                        </div>
-                        <div><a href="/servicios/checkout/4" class="btn btn-outline-primary btn-sm" type="button">Comprar Servicio</a></div>
-                    </div>
-                </div>
+                </g:each>
+
 
             </div>
         </div>

@@ -12,10 +12,11 @@
                     </div>
                     <div class="total"><span>Total</span><span class="price">$${evento.costo}</span></div>
                 </div>
+
                 <div class="card-details">
                     <h3 class="title">Credit Card Details</h3>
                     <div id="paypal-button-container"></div>
-                    <script src="https://www.paypal.com/sdk/js?client-id=AWgzHntYuLTb3e1oPr8y4tijD8GoZXc_pWnXGEM6LfLdTeNJ0syFpIvKlH0u3wVBz8praOBA4P8gsmEf&currency=USD" data-sdk-integration-source="button-factory"></script>
+                    <script src="https://www.paypal.com/sdk/js?client-id=AQmvu7t853Nb1PzRERgULVvsc55QKIPwxaq6uusjMeVOM7hBWS6lMGDlWj9G8KjmerrF_MysBwEL4ieZ&currency=USD" data-sdk-integration-source="button-factory"></script>
                     <script>
                         paypal.Buttons({
                             style: {
@@ -35,9 +36,26 @@
                                 });
                             },
                             onApprove: function(data, actions) {
-                                return actions.order.capture().then(function(details) {
-                                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/servicios/crearfactura/${pedido.id}",
+                                    data: {
+                                        orderID: data.orderID
+                                    },
+                                    dataType :'json'
+
+                                }).done(function (data) {
+                                    console.log(data);
+                                    //alert(data.status);
+                                    if(data.status=='ok'){
+                                        window.location.href="/servicios/verfactura";
+                                    }else{
+                                        alert("Se ha producido un error");
+                                    }
                                 });
+                                /*return actions.order.capture().then(function(details) {
+                                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                                });*/
                             }
                         }).render('#paypal-button-container');
                     </script>
