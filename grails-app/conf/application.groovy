@@ -28,3 +28,4 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+jasper.dir.reports='./web-app/reports'

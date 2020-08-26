@@ -15,6 +15,7 @@
 
                 <div class="card-details">
                     <h3 class="title">Credit Card Details</h3>
+                    <a href="/servicios/report" class="btn btn-primary btn-block btn-lg">Report</a>
                     <div id="paypal-button-container"></div>
                     <script src="https://www.paypal.com/sdk/js?client-id=AQmvu7t853Nb1PzRERgULVvsc55QKIPwxaq6uusjMeVOM7hBWS6lMGDlWj9G8KjmerrF_MysBwEL4ieZ&currency=USD" data-sdk-integration-source="button-factory"></script>
                     <script>

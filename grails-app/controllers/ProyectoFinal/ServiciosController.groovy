@@ -77,6 +77,10 @@ class ServiciosController {
 
 
     }
+
+    def report(){
+        reportService.testReport()
+    }
     //mostrar factura en jasper
     def verfactura() {
 
