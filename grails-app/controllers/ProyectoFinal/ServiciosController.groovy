@@ -4,11 +4,15 @@ import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 import grails.plugins.rest.client.RestBuilder
 import grails.transaction.Transactional
+import org.springframework.util.LinkedMultiValueMap
+import org.springframework.util.MultiValueMap
+
 @Secured(['ROLE_ADMIN'])
 @Transactional
 class ServiciosController {
     static layout = 'layout'
     def springSecurityService
+    def reportService
 
     def index() {
         //def getBatch(String id) {
@@ -21,6 +25,13 @@ class ServiciosController {
         //}
         ["eventos":eventos]
     }
+    def mispedidos(){
+        //List<Pedido> pedidos = Pedido.findAllByUsuario(springSecurityService.currentUser as User)
+        User usuario = springSecurityService.currentUser as User
+        def pedidos = Pedido.findAll()
+        def evento = Evento.findAll()
+        ["listpedidos":pedidos]
+    }
     def payment() {
         def evento=Evento.get(params.id);
         def monto=evento.costo;
@@ -32,7 +43,7 @@ class ServiciosController {
         pedido.estado="Pendiente";
         pedido.usuario=springSecurityService.currentUser as User
         pedido.save();
-
+        System.out.println(pedido.estado)
         //crearfactura()
         def factura=new Factura();
         factura.monto=pedido.monto;
@@ -40,16 +51,23 @@ class ServiciosController {
         factura.estado=0;
         factura.save();
         //post a notificacion de servicio
+        MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>()
+        form.add("mensaje", "Pedido Nuevo Confirmado")
+        form.add("id", pedido.id+"")
+        form.add("correo", "cristianbg011@gmail.com")
+
         def resp = new RestBuilder().post("http://localhost:4566/notificacion"){
             //auth System.getProperty("artifactory.user"), System.getProperty("artifactory.pass")
-            contentType "application/json"
+            /*contentType "application/json"
             json {
                 mensaje = "Pedido Nuevo Confirmado"
-                id = pedido.id
+                id = 1//pedido.id
                 correo="cristianbg011@gmail.com"
-            }
+            }*/
+            contentType("application/x-www-form-urlencoded")
+            body(form)
         }
-
+        System.out.println("hola")
         /*def resp = new RestBuilder().post('http://localhost:4566/notificacion?mensaje={menaje}&id={id}&correo={correo}') {
             urlVariables ["someDude", 1, "enmanuel.bueno@gmail.com"]
         }*/

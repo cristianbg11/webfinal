@@ -30,17 +30,11 @@
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.html">Catalog</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="service-page.html">Services</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="features.html">Features</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="shopping-cart.html">Shopping Cart</a></li>
-                <li class="nav-item" role="presentation"></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html">Register</a></li>
+
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="/servicios">Services</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="/servicios/mispedidos">Mis Pedidos</a></li>
+
+
             </ul>
         </div>
     </div>
