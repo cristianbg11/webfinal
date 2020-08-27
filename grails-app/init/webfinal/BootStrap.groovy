@@ -20,13 +20,13 @@ class BootStrap {
         usuarioRol.save(flush: true)
 
         def empleado1 = new User(username: 'empleado1', enabled: true, password: 'empleado1')
-        admin.email = "afomillow@gmail.com"
-        admin.nombre = "empleado1"
-        admin.save(flush: true)
+        empleado1.email = "afomillow@gmail.com"
+        empleado1.nombre = "empleado1"
+        empleado1.save(flush: true)
 
         def empleadoRol = new UserRole()
         empleadoRol.user = empleado1
-        empleadoRol.role =empleadoRol
+        empleadoRol.role = empleladoRole
         empleadoRol.save(flush: true)
 
         def evento = new Evento()

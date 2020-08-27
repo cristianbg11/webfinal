@@ -7,7 +7,7 @@ import grails.transaction.Transactional
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 
-@Secured(['ROLE_CLIENTE, ROLE_ADMIN'])
+@Secured(['ROLE_CLIENTE', 'ROLE_ADMIN'])
 @Transactional
 class ServiciosController {
     static layout = 'layout'
