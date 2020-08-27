@@ -44,11 +44,11 @@ class ReportService {
 
         def webUtils = WebUtils.retrieveGrailsWebRequest()
         def request = webUtils.getCurrentRequest()
-        def params = [:]
+        def params =[:]// [[fecha:"24/5"],[monto:"5000"],[evento:"boda"],[cliente:"Juan"]]
         def result = [:]
-        result.data = [[name:"xxx"],[name:"yyy"]]
+        result.data = [[monto : "5000"],[cliente : "boda"],[fecha: "8/26"],[cliente: "cristian"]]
         params._file = "Invoice.jrxml"
-        params.TITLE = "TEST !!"
+        params.TITLE = "Reporte !!"
 
         generate(params,request.getLocale(),result,isDownload)
     }

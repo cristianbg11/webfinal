@@ -7,13 +7,14 @@ import grails.transaction.Transactional
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_CLIENTE, ROLE_ADMIN'])
 @Transactional
 class ServiciosController {
     static layout = 'layout'
     def springSecurityService
     def reportService
 
+    @Secured('IS_AUTHENTICATED_ANONYMOUSLY')
     def index() {
         //def getBatch(String id) {
             String url = "http://localhost:4567/eventos"
@@ -91,8 +92,6 @@ class ServiciosController {
         factura.pedido=pedido;
         factura.estado=0;
         factura.save();
-
-
 
     }
 

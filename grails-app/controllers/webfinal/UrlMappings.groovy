@@ -1,5 +1,7 @@
 package webfinal
 
+import ProyectoFinal.ServiciosController
+
 class UrlMappings {
 
     static mappings = {
@@ -9,7 +11,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/"(controller: "servicios", action: "index")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
