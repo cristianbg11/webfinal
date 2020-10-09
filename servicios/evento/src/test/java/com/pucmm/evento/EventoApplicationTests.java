@@ -1,10 +1,10 @@
-package com.pucmm.evento_servicio;
+package com.pucmm.evento;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EventoServicioApplicationTests {
+class EventoApplicationTests {
 
 	@Test
 	void contextLoads() {
